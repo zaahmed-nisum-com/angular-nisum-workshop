@@ -1,0 +1,15 @@
+{
+  "users": [
+    { "id": 1, "firstName": "zain", "lastName": "ahmed", "role": "admin" },
+    { "id": 2, "firstName": "faraz", "lastName": "ahmed", "role": "user" },
+    { "id": 3, "firstName": "arsalan", "lastName": "ahmed", "role": "user" },
+    {
+      "id": 4,
+      "firstName": "muhammad omer",
+      "lastName": "khan",
+      "role": "user"
+    },
+    { "id": 5, "firstName": "ammad", "lastName": "imran", "role": "user" },
+    { "id": 6, "firstName": "arshaq", "lastName": "shakeel", "role": "user" }
+  ]
+}
