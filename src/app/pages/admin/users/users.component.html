@@ -1,9 +1,7 @@
-<div>
-  <ul class="users">
+<div *ngIf="users.length > 0">
+  <ul>
     <li *ngFor="let user of users">
-      <div *ngIf="users.length > 0">
-        <span class="badge">{{ user.id }}</span>
-      </div>
+      <p>{{ user.id }}</p>
     </li>
   </ul>
 </div>
