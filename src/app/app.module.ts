@@ -5,6 +5,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatInputModule} from '@angular/material/input'
 import {MatButtonModule} from '@angular/material/button'
+import {MatIconModule} from '@angular/material/icon'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTableModule} from '@angular/material/table'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +19,9 @@ import { UsersComponent } from './pages/admin/users/users.component';
 import { UserCardComponent } from './components/cards/user-card/user-card.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { DrawerComponent } from './components/drawer/drawer.component';
+import { TableComponent } from './components/table/table.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +32,9 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     UserCardComponent,
     LoginComponent,
     RegistrationComponent,
+    DrawerComponent,
+    TableComponent,
+    LayoutComponent,
   
   ],
   imports: [
@@ -35,7 +45,11 @@ import { RegistrationComponent } from './pages/registration/registration.compone
     MatGridListModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTableModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent],

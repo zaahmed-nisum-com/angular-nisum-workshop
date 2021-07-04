@@ -1,12 +1,26 @@
 <mat-card class="login-main-container">
   <h3>Login</h3>
   <mat-form-field>
-    <input matInput type="text" placeholder="email@gmail.com" />
+    <input
+      matInput
+      type="text"
+      (keyup)="handleinput($event, 'email')"
+      placeholder="email@gmail.com"
+    />
   </mat-form-field>
   <mat-form-field>
-    <input matInput type="password" placeholder="123*****" />
+    <input
+      matInput
+      type="password"
+      (keyup)="handleinput($event, 'password')"
+      placeholder="123*****"
+    />
   </mat-form-field>
   <div class="example-button-row">
-    <button mat-raised-button color="primary">Primary</button>
+    <button (click)="(handleLogin)" mat-raised-button color="primary">
+      Primary
+    </button>
   </div>
+  <p>{{ loginObj.email }}</p>
+  <p>{{ loginObj.password }}</p>
 </mat-card>
