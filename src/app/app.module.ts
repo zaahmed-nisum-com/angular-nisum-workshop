@@ -22,6 +22,10 @@ import { RegistrationComponent } from './pages/registration/registration.compone
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { TableComponent } from './components/table/table.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ItemComponent } from './components/table/components/item/item.component';
+import { FirstWordCapitalPipe } from './pipes/first-word-capital/first-word-capital.pipe';
+import { PipesModule} from './pipes/multipipes/pipes.module';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { LayoutComponent } from './layout/layout.component';
     DrawerComponent,
     TableComponent,
     LayoutComponent,
-  
+    ItemComponent,
+    FirstWordCapitalPipe,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +54,8 @@ import { LayoutComponent } from './layout/layout.component';
     MatIconModule,
     MatToolbarModule,
     MatTableModule,
-    MatSidenavModule
+    MatSidenavModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent],
