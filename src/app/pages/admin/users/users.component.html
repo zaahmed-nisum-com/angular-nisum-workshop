@@ -1,3 +1,18 @@
+<div style="padding:5px;float:right">
+  <button
+    mat-button
+    style="border:1px solid"
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+  Add
+    <mat-icon>add icon</mat-icon>
+  </button>
+</div>
 <div *ngIf="users.length > 0">
-  <app-table [users]="users" [tableColumns]="tableColumns"></app-table>
+  <app-table
+    [users]="users"
+    [tableColumns]="tableColumns"
+    (newItemEvent)="deleteHandle($event)"
+  ></app-table>
 </div>

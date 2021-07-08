@@ -1,5 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LoggerService } from 'src/app/services/logger/logger.service';
+
+interface sideBar {
+  id: number;
+  title: string;
+  link: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-header',
@@ -7,6 +14,8 @@ import { LoggerService } from 'src/app/services/logger/logger.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  @Input() sideBar: sideBar[] = [];
+
   constructor(public logger: LoggerService) {}
 
   opened: Boolean = false;

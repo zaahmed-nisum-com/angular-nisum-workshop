@@ -10,7 +10,25 @@
     </button>
   </mat-toolbar>
   <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="drawer-container" mode="side"> </mat-drawer>
+    <mat-drawer #drawer class="drawer-container" mode="side">
+      <mat-list>
+        <mat-list-item style="cursor: pointer" *ngFor="let item of sideBar">
+          <button
+            mat-button
+            style="text-align: start; color: black; width: 100%; float: left"
+            class="example-icon"
+            aria-label="Example icon-button with menu icon"
+          >
+            <mat-icon>{{item.icon}}</mat-icon>
+            {{ item.title }}
+          </button>
+          <mat-divider class="horizontal-seperator"></mat-divider>
+        </mat-list-item>
+      </mat-list>
+      <!-- <mat-list-option *ngFor="let item of sideBar">
+        {{ item.title }}
+      </mat-list-option> -->
+    </mat-drawer>
   </mat-drawer-container>
 </div>
 <div *ngIf="!authrized">

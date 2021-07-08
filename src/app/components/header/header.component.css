@@ -28,7 +28,7 @@
 .drawer-container {
   width: 200px;
   height: 100%;
-  background-color: aqua;
+  background-color: white;
   position: fixed;
   margin: 64px 0px 0px 0px;
 }
@@ -44,4 +44,8 @@
 }
 .mat-divider {
   border-color: white;
+}
+.horizontal-seperator{
+  border-color: black;
+  margin: 5px 0px;
 }

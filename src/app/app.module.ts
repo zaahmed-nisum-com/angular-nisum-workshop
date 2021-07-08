@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table'
+import {MatListModule} from '@angular/material/list'
 
 import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,6 +61,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     MatSidenavModule,
     PipesModule,
     MatDividerModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
