@@ -9,11 +9,12 @@ import { UserService } from 'src/app/services/users/user.service';
 })
 export class UsersComponent implements OnInit {
   users: Users[] = [];
+  tableColumns: string[] = ['id', 'firstName', 'lastName','role', 'createdAt'];
 
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
     this.users = this.userService.getUsers();
-    console.log(this.users);
+    console.log('users=> user components', this.users);
   }
 }

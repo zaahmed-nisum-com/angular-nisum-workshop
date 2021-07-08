@@ -10,7 +10,7 @@ import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table'
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,7 +25,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { ItemComponent } from './components/table/components/item/item.component';
 import { FirstWordCapitalPipe } from './pipes/first-word-capital/first-word-capital.pipe';
 import { PipesModule} from './pipes/multipipes/pipes.module';
-
+import {MatDividerModule} from '@angular/material/divider';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,8 @@ import { PipesModule} from './pipes/multipipes/pipes.module';
     LayoutComponent,
     ItemComponent,
     FirstWordCapitalPipe,
+    routingComponents,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +58,8 @@ import { PipesModule} from './pipes/multipipes/pipes.module';
     MatToolbarModule,
     MatTableModule,
     MatSidenavModule,
-    PipesModule
+    PipesModule,
+    MatDividerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

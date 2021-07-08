@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Form, NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { authLogin } from '../../interfaces/Auth';
 
@@ -15,8 +16,12 @@ export class LoginComponent implements OnInit {
 
   constructor(public authService: AuthService) {}
 
-  handleinput(event: any, label: any) {
-    this.loginObj[label] = event.target.value;
+  handleinput(event: any, label:string) {
+    this.loginObj[label] = event.target.value as string;
+  }
+
+  handleOnSubmit(form:NgForm){
+
   }
 
   handleLogin() {}

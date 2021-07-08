@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
   constructor(public logger: LoggerService) {}
 
   opened: Boolean = false;
+  authrized: Boolean = true;
 
   handleToggleDrawer() {
     this.opened = !this.opened;

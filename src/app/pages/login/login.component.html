@@ -1,3 +1,4 @@
+<app-header></app-header>
 <mat-card class="login-main-container">
   <h3>Login</h3>
   <mat-form-field>
@@ -23,4 +24,7 @@
   </div>
   <p>{{ loginObj.email }}</p>
   <p>{{ loginObj.password }}</p>
+  <form onsubmit="handleOnSubmit" >
+    <input ngModel name="email" />
+  </form>
 </mat-card>

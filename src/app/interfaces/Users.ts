@@ -2,5 +2,6 @@ export interface Users {
   id: number;
   firstName: string;
   lastName: string;
-  role:string
+  role:string,
+  createdAt:string
 }

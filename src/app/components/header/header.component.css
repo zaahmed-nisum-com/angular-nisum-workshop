@@ -1,4 +1,4 @@
-.example--nav-sidebar-container {
+.nav-header-container {
   height: 100%;
   position: absolute;
   padding: 10px;
@@ -11,5 +11,37 @@
   justify-content: center;
 }
 .example-sidenav {
+  height: 100%;
   user-select: none;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}
+.drawer-container {
+  width: 200px;
+  height: 100%;
+  background-color: aqua;
+  position: fixed;
+  margin: 64px 0px 0px 0px;
+}
+.header-unauthrized-container {
+}
+.header-unauthrized-container ul{
+  display: flex;
+}
+.header-unauthrized-container ul li{
+  display: block;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+.mat-divider {
+  border-color: white;
 }

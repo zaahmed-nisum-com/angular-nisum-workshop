@@ -1,55 +1,66 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Users } from 'src/app/interfaces/Users';
 export interface PeriodicElement {
-  position: number;
+  id: number;
   firstName: string;
   lastName: string;
   weight: number;
   symbol: string;
-  createdAt:Date
+  createdAt: Date;
 }
 const ELEMENT_DATA: PeriodicElement[] = [
   {
-    position: 1,
+    id: 1,
     firstName: 'zain',
     lastName: 'ahmed',
     weight: 1.0079,
     symbol: 'H',
-    createdAt:new Date
+    createdAt: new Date(),
   },
   {
-    position: 2,
+    id: 2,
     firstName: 'arsalan',
     lastName: 'ahmed',
     weight: 4.0026,
     symbol: 'He',
-    createdAt:new Date
+    createdAt: new Date(),
   },
   {
-    position: 3,
+    id: 3,
     firstName: 'faraz',
     lastName: 'ahmed',
     weight: 6.941,
     symbol: 'Li',
-    createdAt:new Date
+    createdAt: new Date(),
   },
 ];
+interface users {
+  id: number;
+  firstName: string;
+  lastName: string;
+  role:string,
+  createdAt:string
+}
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  constructor() {}
+  @Input() users: users[] = [];
+  @Input() tableColumns: string[] = [];
+  constructor() {
+    console.log('users=>', this.users);
+  }
 
-  dataSource = ELEMENT_DATA;
-  displayedColumns: string[] = [
-    'position',
-    'firstName',
-    'lastName',
-    'weight',
-    'symbol',
-    'createdAt',
-  ];
+  dataSource: Users[] = [];
+  displayedColumns: string[] = [];
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.users, 'ngOnInit');
+    this.dataSource = this.users;
+    console.log(this.tableColumns, 'headerColumns');
+    this.displayedColumns = this.tableColumns;
+    console.log(this.displayedColumns)
+  }
 }

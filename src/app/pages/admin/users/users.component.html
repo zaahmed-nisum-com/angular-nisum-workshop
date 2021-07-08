@@ -1,7 +1,3 @@
 <div *ngIf="users.length > 0">
-  <ul>
-    <li *ngFor="let user of users">
-      <p>{{ user.id }}</p>
-    </li>
-  </ul>
+  <app-table [users]="users" [tableColumns]="tableColumns"></app-table>
 </div>
