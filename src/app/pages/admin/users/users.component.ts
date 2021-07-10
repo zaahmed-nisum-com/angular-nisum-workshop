@@ -22,11 +22,11 @@ export class UsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.users = this.userService.getUsers();
-    console.log('users=> user components', this.users);
+    // console.log('users=> user components', this.users);
   }
 
   deleteHandle(newItem: any) {
     console.log(this.users[newItem - 1]);
-    console.log('newItem=>', newItem);
+    // console.log('newItem=>', newItem);
   }
 }

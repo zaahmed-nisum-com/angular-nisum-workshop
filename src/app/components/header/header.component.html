@@ -13,15 +13,17 @@
     <mat-drawer #drawer class="drawer-container" mode="side">
       <mat-list>
         <mat-list-item style="cursor: pointer" *ngFor="let item of sideBar">
-          <button
-            mat-button
-            style="text-align: start; color: black; width: 100%; float: left"
-            class="example-icon"
-            aria-label="Example icon-button with menu icon"
+          <a [routerLink]="[item.link]"
+            ><button
+              mat-button
+              style="text-align: start; color: black; width: 100%; float: left"
+              class="example-icon"
+              aria-label="Example icon-button with menu icon"
+            >
+              <mat-icon>{{ item.icon }}</mat-icon>
+              {{ item.title }}
+            </button></a
           >
-            <mat-icon>{{item.icon}}</mat-icon>
-            {{ item.title }}
-          </button>
           <mat-divider class="horizontal-seperator"></mat-divider>
         </mat-list-item>
       </mat-list>
