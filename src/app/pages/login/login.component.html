@@ -18,13 +18,10 @@
     />
   </mat-form-field>
   <div class="example-button-row">
-    <button (click)="(handleLogin)" mat-raised-button color="primary">
-      Primary
+    <button (click)="handleLogin()" mat-raised-button color="primary">
+      Login
     </button>
   </div>
   <p>{{ loginObj.email }}</p>
   <p>{{ loginObj.password }}</p>
-  <form onsubmit="handleOnSubmit" >
-    <input ngModel name="email" />
-  </form>
 </mat-card>

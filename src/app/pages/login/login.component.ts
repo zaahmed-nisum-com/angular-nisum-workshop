@@ -16,15 +16,14 @@ export class LoginComponent implements OnInit {
 
   constructor(public authService: AuthService) {}
 
-  handleinput(event: any, label:string) {
+  handleinput(event: any, label: string) {
     this.loginObj[label] = event.target.value as string;
   }
 
-  handleOnSubmit(form:NgForm){
-
+  handleLogin() {
+    // console.log(this.loginObj)
+    this.authService.login(this.loginObj);
   }
-
-  handleLogin() {}
 
   ngOnInit(): void {}
 }

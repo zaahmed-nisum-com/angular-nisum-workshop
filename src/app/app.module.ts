@@ -28,6 +28,8 @@ import { FirstWordCapitalPipe } from './pipes/first-word-capital/first-word-capi
 import { PipesModule} from './pipes/multipipes/pipes.module';
 import {MatDividerModule} from '@angular/material/divider';
 import { AdminComponent } from './pages/admin/admin.component';
+import { ProductsComponent } from './pages/admin/products/products/products.component';
+import { EventsComponent } from './pages/admin/events/events/events.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { AdminComponent } from './pages/admin/admin.component';
     FirstWordCapitalPipe,
     routingComponents,
     AdminComponent,
+    ProductsComponent,
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
