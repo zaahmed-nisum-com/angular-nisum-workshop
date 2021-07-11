@@ -1,26 +1,35 @@
 <div class="user-add-form-container">
+  <h2>Users</h2>
   <mat-card>
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
       <mat-label>First Name</mat-label>
-      <input matInput placeholder="Ex. Pizza" />
+      <input matInput (keyup)="handleinput($event, 'firstName')" [value]="newUser.firstName" placeholder="Ex. Pizza" />
     </mat-form-field>
 
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
       <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Ex. It makes me feel..." />
+      <input matInput (keyup)="handleinput($event, 'lastName')" [value]="newUser.lastName"
+        placeholder="Ex. It makes me feel..." />
     </mat-form-field>
 
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
       <mat-label>Role</mat-label>
-      <input matInput placeholder="Ex. It makes me feel..." />
+      <input matInput (keyup)="handleinput($event, 'role')" [value]="newUser.role"
+        placeholder="Ex. It makes me feel..." />
     </mat-form-field>
-    <button mat-button style="border: 1px solid;margin: 5px; width:20%;" class="example-icon"
-      aria-label="Example icon-button with menu icon">
+    <button *ngIf=!isUpdateing mat-button (click)="addUser()" style="border: 1px solid; margin: 5px; width: 20%"
+      class="example-icon" aria-label="Example icon-button with menu icon">
       Add
       <mat-icon>add icon</mat-icon>
+    </button>
+    <button *ngIf=isUpdateing mat-button (click)="addUser()" style="border: 1px solid; margin: 5px; width: 20%"
+      class="example-icon" aria-label="Example icon-button with menu icon">
+      Update
+      <mat-icon>edit icon</mat-icon>
     </button>
   </mat-card>
 </div>
 <div *ngIf="users.length > 0">
-  <app-table [users]="users" [tableColumns]="tableColumns" (newItemEvent)="deleteHandle($event)"></app-table>
+  <app-table [users]="users" [tableColumns]="tableColumns" (newItemEvent)="deleteHandle($event)"
+    (updateItemEvent)="updateHandle($event)"></app-table>
 </div>

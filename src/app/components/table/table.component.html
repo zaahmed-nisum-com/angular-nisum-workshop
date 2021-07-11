@@ -42,19 +42,12 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>Actions</th>
     <td mat-cell *matCellDef="let element">
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-        (click)="addNewItem(element.id)"
-      >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+        (click)="addNewItem(element.id)">
         <mat-icon>delete icon</mat-icon>
       </button>
-      <button
-        mat-icon-button
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+        (click)="updateItem(element.id)">
         <mat-icon>edit icon</mat-icon>
       </button>
     </td>

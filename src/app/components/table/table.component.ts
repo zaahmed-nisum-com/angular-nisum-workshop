@@ -17,8 +17,9 @@ export class TableComponent implements OnInit {
   @Input() users: users[] = [];
   @Input() tableColumns: string[] = [];
   @Output() newItemEvent = new EventEmitter<string>();
+  @Output() updateItemEvent = new EventEmitter<string>();
 
-  constructor() {}
+  constructor() { }
 
   dataSource: Users[] = [];
   displayedColumns: string[] = [];
@@ -30,5 +31,9 @@ export class TableComponent implements OnInit {
 
   addNewItem(value: string) {
     this.newItemEvent.emit(value);
+  }
+  updateItem(value: string) {
+    // console.log(value)
+    this.updateItemEvent.emit(value);
   }
 }
