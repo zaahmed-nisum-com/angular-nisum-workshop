@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
     'actions',
   ];
 
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
     this.users = this.userService.getUsers();

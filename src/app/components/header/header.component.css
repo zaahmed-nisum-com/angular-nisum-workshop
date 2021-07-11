@@ -34,10 +34,10 @@
 }
 .header-unauthrized-container {
 }
-.header-unauthrized-container ul{
+.header-unauthrized-container ul {
   display: flex;
 }
-.header-unauthrized-container ul li{
+.header-unauthrized-container ul li {
   display: block;
   margin: 0px 5px;
   cursor: pointer;
@@ -45,7 +45,8 @@
 .mat-divider {
   border-color: white;
 }
-.horizontal-seperator{
-  border-color: black;
+.horizontal-seperator {
+  border-bottom: solid 0.5px;
+  border-bottom-color: black;
   margin: 5px 0px;
 }
