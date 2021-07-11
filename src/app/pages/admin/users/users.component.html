@@ -11,41 +11,54 @@
 </div> -->
 <div class="user-add-form-container">
   <mat-card>
-      <mat-form-field
-        style="margin: 5px"
-        class="example-full-width"
-        appearance="fill"
-      >
-        <mat-label>First Name</mat-label>
-        <input matInput placeholder="Ex. Pizza" />
-      </mat-form-field>
+    <mat-form-field
+      style="margin: 5px"
+      class="example-full-width"
+      appearance="fill"
+    >
+      <mat-label>First Name</mat-label>
+      <input
+        matInput
+        (keyup)="handleinput($event, 'firstName')"
+        placeholder="Ex. Pizza"
+      />
+    </mat-form-field>
 
-      <mat-form-field
-        style="margin: 5px"
-        class="example-full-width"
-        appearance="fill"
-      >
-        <mat-label>Last Name</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." />
-      </mat-form-field>
+    <mat-form-field
+      style="margin: 5px"
+      class="example-full-width"
+      appearance="fill"
+    >
+      <mat-label>Last Name</mat-label>
+      <input
+        matInput
+        (keyup)="handleinput($event, 'lastName')"
+        placeholder="Ex. It makes me feel..."
+      />
+    </mat-form-field>
 
-      <mat-form-field
-        style="margin: 5px"
-        class="example-full-width"
-        appearance="fill"
-      >
-        <mat-label>Role</mat-label>
-        <input matInput placeholder="Ex. It makes me feel..." />
-      </mat-form-field>
-      <button
-        mat-button
-        style="border: 1px solid;margin: 5px; width:20%;"
-        class="example-icon"
-        aria-label="Example icon-button with menu icon"
-      >
-        Add
-        <mat-icon>add icon</mat-icon>
-      </button>
+    <mat-form-field
+      style="margin: 5px"
+      class="example-full-width"
+      appearance="fill"
+    >
+      <mat-label>Role</mat-label>
+      <input
+        matInput
+        (keyup)="handleinput($event, 'role')"
+        placeholder="Ex. It makes me feel..."
+      />
+    </mat-form-field>
+    <button
+      mat-button
+      (click)="addUser()"
+      style="border: 1px solid; margin: 5px; width: 20%"
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      Add
+      <mat-icon>add icon</mat-icon>
+    </button>
   </mat-card>
 </div>
 <div *ngIf="users.length > 0">

@@ -9,6 +9,12 @@ import { UserService } from 'src/app/services/users/user.service';
 })
 export class UsersComponent implements OnInit {
   users: Users[] = [];
+  newUser: any = {
+    firstName: '',
+    lastName: '',
+    role: '',
+  };
+
   tableColumns: string[] = [
     'id',
     'firstName',
@@ -21,12 +27,26 @@ export class UsersComponent implements OnInit {
   constructor(public userService: UserService) {}
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
+    this.getUsers();
     // console.log('users=> user components', this.users);
   }
 
+  getUsers() {
+    this.users = this.userService.getUsers();
+    console.log(this.users);
+  }
+
+  handleinput(event: any, label: string) {
+    this.newUser[label] = event.target.value as string;
+  }
+
   deleteHandle(newItem: any) {
-    console.log(this.users[newItem - 1]);
-    // console.log('newItem=>', newItem);
+    this.userService.deleteUser(newItem);
+    this.getUsers();
+  }
+
+  addUser() {
+    this.userService.addUsers(this.newUser);
+    this.getUsers();
   }
 }
