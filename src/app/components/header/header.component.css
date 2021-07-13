@@ -50,3 +50,7 @@
   border-bottom-color: black;
   margin: 5px 0px;
 }
+
+.example-toolbar {
+  justify-content: space-between;
+}

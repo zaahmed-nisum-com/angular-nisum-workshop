@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Users } from 'src/app/interfaces/Users';
 import { UserService } from 'src/app/services/users/user.service';
+import geolocationObservable from '../../../observables/geolocation-observable/geolocation-observable'
 
 @Component({
   selector: 'app-users',
@@ -25,9 +26,24 @@ export class UsersComponent implements OnInit {
     'actions',
   ];
 
+  locationsSubscription = geolocationObservable.subscribe({
+    next(position) {
+      console.log("unsubscribe position")
+      console.log('Current Position: ', position);
+    },
+    error(msg) {
+      console.log("unsubscribe error")
+      console.log('Error Getting Location: ', msg);
+    }
+  });
+
   constructor(public userService: UserService) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      console.log("unsubscribe")
+      this.locationsSubscription.unsubscribe();
+    }, 10000);
     this.getUsers();
     // console.log('users=> user components', this.users);
   }

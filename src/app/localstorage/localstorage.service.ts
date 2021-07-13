@@ -4,12 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LocalstorageService {
-  constructor() {}
+  constructor() { }
 
   addItem(key: string, data: {}) {
     window.localStorage.setItem(key, JSON.stringify(data));
   }
-  removeItem() {}
+  removeItem(value: string) {
+    window.localStorage.removeItem(value)
+  }
   getItem(value: string) {
     const response: any = window.localStorage.getItem(value);
     return JSON.parse(response);
