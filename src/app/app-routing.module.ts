@@ -9,12 +9,13 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 
 const routes: Routes = [
+  { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: RegistrationComponent },
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate:[AuthGuardGuard],
+    canActivate: [AuthGuardGuard],
     children: [
       {
         path: 'events', // child route path
@@ -34,12 +35,11 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '', component: LoginComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, RegistrationComponent];

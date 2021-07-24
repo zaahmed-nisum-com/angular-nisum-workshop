@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
-import { DateFormateInWordsMYD } from './dateFormate';
+import { DateFormate } from './dateFormate';
 
 @NgModule({
     declarations: [
-        DateFormateInWordsMYD,
+        DateFormate,
+        // OnlyTimeHMS
     ],
     imports: [
 
     ],
     exports: [
-        DateFormateInWordsMYD,
+        DateFormate,
+        // OnlyTimeHMS
     ]
     ,
 })
-export class PipesModule {}
+export class PipesModule { }

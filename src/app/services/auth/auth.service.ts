@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalstorageService } from 'src/app/localstorage/localstorage.service';
 
-interface loginData {
-  [key: string]: string;
+interface authData {
+  [key: string]: string | any;
 }
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,9 @@ export class AuthService {
   constructor(
     private router: Router,
     private localStorageService: LocalstorageService
-  ) {}
+  ) { }
 
-  login(data: loginData) {
+  login(data: authData) {
     if (data.email == 'zaahmed@gmail.com' && data.password == '123123') {
       this.localStorageService.addItem('auth', {
         email: 'zaahmed@gmail.com',
@@ -25,5 +25,11 @@ export class AuthService {
     }
   }
 
-  registration() {}
+  logout(data: authData) {
+    this.localStorageService.addItem('auth', { ...data });
+    console.log('logout')
+    this.router.navigate(['login']);
+  }
+
+  registration() { }
 }

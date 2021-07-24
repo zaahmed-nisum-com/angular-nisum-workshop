@@ -28,12 +28,11 @@
 .drawer-container {
   width: 200px;
   height: 100%;
-  background-color: white;
+  background-color: #424242;
   position: fixed;
   margin: 64px 0px 0px 0px;
 }
-.header-unauthrized-container {
-}
+
 .header-unauthrized-container ul {
   display: flex;
 }
@@ -43,14 +42,14 @@
   cursor: pointer;
 }
 .mat-divider {
-  border-color: white;
 }
 .horizontal-seperator {
   border-bottom: solid 0.5px;
-  border-bottom-color: black;
+  border-bottom-color: #424242;
   margin: 5px 0px;
 }
 
 .example-toolbar {
   justify-content: space-between;
+  background-color: #424242;
 }

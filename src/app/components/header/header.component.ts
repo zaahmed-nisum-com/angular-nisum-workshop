@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LocalstorageService } from 'src/app/localstorage/localstorage.service';
 import { LoggerService } from 'src/app/services/logger/logger.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 interface sideBar {
   id: number;
@@ -17,7 +18,7 @@ interface sideBar {
 export class HeaderComponent implements OnInit {
   @Input() sideBar: sideBar[] = [];
 
-  constructor(public logger: LoggerService, private localStorageServices: LocalstorageService) { }
+  constructor(public logger: LoggerService, private authService: AuthService, private localStorageServices: LocalstorageService) { }
 
   opened: Boolean = false;
   authrized: Boolean = false;
@@ -27,7 +28,12 @@ export class HeaderComponent implements OnInit {
   }
 
   logoutHandle() {
-    this.localStorageServices.removeItem('auth');
+    this.authService.logout({
+      email: '',
+      isLogin: false,
+      authToken: '',
+    })
+    // this.localStorageServices.removeItem('auth');
     this.authrized = false
   }
 

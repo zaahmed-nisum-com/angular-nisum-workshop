@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
 import { Users } from 'src/app/interfaces/Users';
 
 interface users {
@@ -19,7 +19,7 @@ export class TableComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<string>();
   @Output() updateItemEvent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private ChangeDetectorRef: ChangeDetectorRef) { }
 
   dataSource: Users[] = [];
   displayedColumns: string[] = [];
@@ -27,6 +27,7 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource = this.users;
     this.displayedColumns = this.tableColumns;
+    this.refresh()
   }
 
   addNewItem(value: string) {
@@ -35,5 +36,9 @@ export class TableComponent implements OnInit {
   updateItem(value: string) {
     // console.log(value)
     this.updateItemEvent.emit(value);
+  }
+
+  refresh() {
+    this.ChangeDetectorRef.detectChanges()
   }
 }

@@ -1,21 +1,20 @@
 <div class="user-add-form-container">
+  <div>{{this.timerClock | DateFormate: 'HM'}}</div>
   <h2>Users</h2>
   <mat-card>
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
       <mat-label>First Name</mat-label>
-      <input matInput (keyup)="handleinput($event, 'firstName')" [value]="newUser.firstName" placeholder="Ex. Pizza" />
+      <input matInput (keyup)="handleinput($event, 'firstName')" [value]="newUser.firstName" placeholder="Ex. John" />
     </mat-form-field>
 
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
       <mat-label>Last Name</mat-label>
-      <input matInput (keyup)="handleinput($event, 'lastName')" [value]="newUser.lastName"
-        placeholder="Ex. It makes me feel..." />
+      <input matInput (keyup)="handleinput($event, 'lastName')" [value]="newUser.lastName" placeholder="Ex. Wick" />
     </mat-form-field>
 
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
       <mat-label>Role</mat-label>
-      <input matInput (keyup)="handleinput($event, 'role')" [value]="newUser.role"
-        placeholder="Ex. It makes me feel..." />
+      <input matInput (keyup)="handleinput($event, 'role')" [value]="newUser.role" placeholder="Ex. Admin/Host" />
     </mat-form-field>
     <button *ngIf=!isUpdateing mat-button (click)="addUser()" style="border: 1px solid; margin: 5px; width: 20%"
       class="example-icon" aria-label="Example icon-button with menu icon">
@@ -30,6 +29,18 @@
   </mat-card>
 </div>
 <div *ngIf="users.length > 0">
+  <!-- <table>
+    <thead>
+      <tr>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i;">
+        <td>{{user.firstName}}</td>
+      </tr>
+    </tbody>
+  </table> -->
   <app-table [users]="users" [tableColumns]="tableColumns" (newItemEvent)="deleteHandle($event)"
     (updateItemEvent)="updateHandle($event)"></app-table>
 </div>

@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
   sideBar = [
-    { id: 1, title: 'User List', link: '/users', icon: 'add icon' },
-    { id: 2, title: 'Event List', link: '/events', icon: 'add icon' },
-    { id: 3, title: 'Products List', link: '/products', icon: 'add icon' },
+    { id: 1, title: 'User List', link: 'users', icon: 'add icon' },
+    { id: 2, title: 'Event List', link: 'events', icon: 'add icon' },
+    { id: 3, title: 'Products List', link: 'products', icon: 'add icon' },
   ];
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
