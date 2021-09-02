@@ -5,11 +5,14 @@ import { HttpService } from '../http/http.service';
   providedIn: 'root',
 })
 export class UserService {
-
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService) {}
 
   getUsers() {
-    this.httpService.fetchApi('https://jsonplaceholder.typicode.com/userss')
+   const a =  this.httpService
+      .fetchApi('https://jsonplaceholder.typicode.com/users')
+      .subscribe((data) => {
+        return users;
+      });
     return users;
   }
   deleteUser(index: number) {

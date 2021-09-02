@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { Users } from 'src/app/interfaces/Users';
 import timeclock from 'src/app/observables/time-clock/time-clock-observable';
 import { UserService } from 'src/app/services/users/user.service';
-import geolocationObservable from '../../../observables/geolocation-observable/geolocation-observable'
+import geolocationObservable from '../../../observables/geolocation-observable/geolocation-observable';
+import {TableComponent} from '../../../components/table/table.component'
 
 @Component({
   selector: 'app-users',
@@ -18,7 +19,7 @@ export class UsersComponent implements OnInit {
     lastName: '',
     role: '',
   };
-  isUpdateing: Boolean = false
+  isUpdateing: Boolean = false;
 
   tableColumns: string[] = [
     'id',
@@ -26,7 +27,7 @@ export class UsersComponent implements OnInit {
     'lastName',
     'role',
     'createdAt',
-    'actions',
+    // 'actions',
   ];
 
   // locationsSubscription = geolocationObservable.subscribe({
@@ -40,21 +41,16 @@ export class UsersComponent implements OnInit {
   //   }
   // });
 
-
-
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService) {}
 
   runObservers() {
     this.timeWatch = timeclock.subscribe((value) => {
-      this.timerClock = value
-    })
+      this.timerClock = value;
+    });
   }
 
   ngOnInit(): void {
-    this.runObservers()
-    setTimeout(() => {
-      this.timeWatch.unsubscribe();
-    }, 10000);
+    this.getUsers();
   }
 
   handleinput(event: any, label: string) {
@@ -62,37 +58,31 @@ export class UsersComponent implements OnInit {
   }
 
   getUsers() {
-    // this.users = this.userService.getUsers();
-    console.log(this.users);
+    this.users = this.userService.getUsers();
   }
 
   addUser() {
-    console.log(this.newUser)
-    console.log(this.users)
-    this.users.push({
-      ...this.newUser
-    })
+    this.newUser.id = this.users.length + 1;
+    this.newUser.CreatedAt = '12-12-12';
+    this.userService.addUsers(this.newUser);
     this.newUser = {
       firstName: '',
       lastName: '',
       role: '',
-    }
-    // this.userService.addUsers(this.newUser);
+    };
     this.getUsers();
   }
 
   updateHandle(updateItemIndex: any) {
-    let updateingUser = this.users.filter(item => item.id == updateItemIndex);
+    let updateingUser = this.users.filter((item) => item.id == updateItemIndex);
     this.newUser.firstName = updateingUser[0].firstName;
-    this.newUser.lastName = updateingUser[0].lastName
+    this.newUser.lastName = updateingUser[0].lastName;
     this.newUser.role = updateingUser[0].role;
-    this.isUpdateing = true
+    this.isUpdateing = true;
   }
 
   deleteHandle(newItem: any) {
     this.userService.deleteUser(newItem);
     this.getUsers();
   }
-
-
 }

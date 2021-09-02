@@ -1,0 +1,28 @@
+mat-grid-tile {
+  background: lightblue;
+}
+.admin-user-container {
+  margin: 10px;
+}
+.user-add-form-container {
+  margin: 20px;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+::ng-deep .mat-input-element {
+  /*change color of label*/
+  caret-color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: white !important;
+}

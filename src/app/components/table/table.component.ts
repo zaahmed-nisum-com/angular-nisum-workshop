@@ -1,4 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  OnChanges,
+  EventEmitter,
+  ChangeDetectorRef,
+} from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Users } from 'src/app/interfaces/Users';
 
 interface users {
@@ -14,20 +23,29 @@ interface users {
   styleUrls: ['./table.component.css'],
 })
 export class TableComponent implements OnInit {
-  @Input() users: users[] = [];
+  dataSource = new MatTableDataSource<any>();
+  get handle():any {
+    return this.users;
+  }
+
+  @Input() set handle(value: any) {
+    console.log(value, 'value');
+    this.dataSource.data = value;
+  }
+  @Input() users: Users[] = [];
   @Input() tableColumns: string[] = [];
   @Output() newItemEvent = new EventEmitter<string>();
   @Output() updateItemEvent = new EventEmitter<string>();
+  // @Output() updateNew__ = new EventEmitter<string>();
 
-  constructor(private ChangeDetectorRef: ChangeDetectorRef) { }
+  constructor() {}
 
-  dataSource: Users[] = [];
   displayedColumns: string[] = [];
 
+  
   ngOnInit(): void {
-    this.dataSource = this.users;
+    this.dataSource.data = this.users;
     this.displayedColumns = this.tableColumns;
-    this.refresh()
   }
 
   addNewItem(value: string) {
@@ -38,7 +56,12 @@ export class TableComponent implements OnInit {
     this.updateItemEvent.emit(value);
   }
 
-  refresh() {
-    this.ChangeDetectorRef.detectChanges()
+  updateNew() {
+    this.dataSource.data = this.users;
+    // this.updateNew__.emit();
   }
+
+  // refresh() {
+  //   this.ChangeDetectorRef.detectChanges()
+  // }
 }

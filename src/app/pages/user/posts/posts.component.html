@@ -1,20 +1,14 @@
-<div class="user-add-form-container">
-  <div>{{this.timerClock | DateFormate: 'HM'}}</div>
-  <h2>Users</h2>
+<!-- <div class="user-add-form-container">
+  <h2>Create Post</h2>
   <mat-card>
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
-      <mat-label>First Name</mat-label>
-      <input matInput (keyup)="handleinput($event, 'firstName')" [value]="newUser.firstName" placeholder="Ex. John" />
+      <mat-label>Title</mat-label>
+      <input matInput (keyup)="handleinput($event, 'title')" [value]="newUser.firstName" placeholder="Ex.  what is html" />
     </mat-form-field>
 
     <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
-      <mat-label>Last Name</mat-label>
-      <input matInput (keyup)="handleinput($event, 'lastName')" [value]="newUser.lastName" placeholder="Ex. Wick" />
-    </mat-form-field>
-
-    <mat-form-field style="margin: 5px" class="example-full-width" appearance="fill">
-      <mat-label>Role</mat-label>
-      <input matInput (keyup)="handleinput($event, 'role')" [value]="newUser.role" placeholder="Ex. Admin/Host" />
+      <mat-label>Post Body</mat-label>
+      <input matInput (keyup)="handleinput($event, 'body')" [value]="newUser.lastName" placeholder="Ex. html is a programming language :P" />
     </mat-form-field>
     <button *ngIf=!isUpdateing mat-button (click)="addUser()" style="border: 1px solid; margin: 5px; width: 20%"
       class="example-icon" aria-label="Example icon-button with menu icon">
@@ -30,7 +24,8 @@
 </div>
 <div *ngIf="users.length > 0">
   <p>table</p>
-  <!-- <table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <table mat-table [dataSource]="users" class="mat-elevation-z8">
+  
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>No.</th>
       <td mat-cell *matCellDef="let element">{{ element.id }}</td>
@@ -62,9 +57,23 @@
       </td>
     </ng-container>
   
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+          (click)="addNewItem(element.id)">
+          <mat-icon>delete icon</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"
+          (click)="updateItem(element.id)">
+          <mat-icon>edit icon</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+  
     <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
-  </table> -->
+  </table>
   <table>
     <thead>
       <tr>
@@ -79,4 +88,5 @@
   </table>
   <app-table [users]="users" [tableColumns]="tableColumns"
     (updateItemEvent)="updateHandle($event)"></app-table>
-</div>
+
+  </div> -->
