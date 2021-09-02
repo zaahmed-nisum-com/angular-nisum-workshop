@@ -7,6 +7,7 @@ import { ProductsComponent } from './pages/admin/products/products/products.comp
 import { UsersComponent } from './pages/admin/users/users.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
+import { PostsComponent } from './pages/user/posts/posts.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
@@ -20,6 +21,10 @@ const routes: Routes = [
       {
         path: 'events', // child route path
         component: EventsComponent, // child route component that the router renders
+      },
+      {
+        path: 'posts', // child route path
+        component: PostsComponent, // child route component that the router renders
       },
       {
         path: 'products',

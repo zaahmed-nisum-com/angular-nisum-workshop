@@ -1,7 +1,11 @@
 import { Observable } from 'rxjs'
 
 const locations = new Observable((observer) => {
-    let watchId: number;
+    let state: {
+        users:[]
+    };
+
+    let watchId: any;
 
     if ('geolocation' in navigator) {
         watchId = navigator.geolocation.watchPosition((position: GeolocationPosition) => {
