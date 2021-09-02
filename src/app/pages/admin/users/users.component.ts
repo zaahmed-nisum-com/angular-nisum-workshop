@@ -63,12 +63,14 @@ export class UsersComponent implements OnInit {
 
   getUsers() {
     // this.users = this.userService.getUsers();
-    console.log(this.users);
+    console.log(this.users, 'getUsers getUsers');
+    // ChangeDetectorRef.detectChanges() 
+    this.users = [...this.users];
   }
 
   addUser() {
-    console.log(this.newUser)
-    console.log(this.users)
+    // console.log(this.newUser)
+    // console.log(this.users)
     this.users.push({
       ...this.newUser
     })

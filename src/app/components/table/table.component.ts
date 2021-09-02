@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter,OnChanges } from '@angular/core';
 import { Users } from 'src/app/interfaces/Users';
 
 interface users {
@@ -13,13 +13,13 @@ interface users {
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css'],
 })
-export class TableComponent implements OnInit {
+export class TableComponent implements OnInit,OnChanges {
   @Input() users: users[] = [];
   @Input() tableColumns: string[] = [];
   @Output() newItemEvent = new EventEmitter<string>();
   @Output() updateItemEvent = new EventEmitter<string>();
 
-  constructor(private ChangeDetectorRef: ChangeDetectorRef) { }
+  constructor() {}
 
   dataSource: Users[] = [];
   displayedColumns: string[] = [];
@@ -27,7 +27,6 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     this.dataSource = this.users;
     this.displayedColumns = this.tableColumns;
-    this.refresh()
   }
 
   addNewItem(value: string) {
@@ -38,7 +37,10 @@ export class TableComponent implements OnInit {
     this.updateItemEvent.emit(value);
   }
 
-  refresh() {
-    this.ChangeDetectorRef.detectChanges()
+  ngOnChanges() {
+    /**********THIS FUNCTION WILL TRIGGER WHEN PARENT COMPONENT UPDATES 'someInput'**************/
+    //Write your code here
+    this.dataSource = this.users;
   }
+
 }
